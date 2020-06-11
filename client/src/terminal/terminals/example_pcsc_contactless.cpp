@@ -128,6 +128,24 @@ ResponsePacket ExampleTerminalPCSCContactless::sendCommand(unsigned char command
 	std::string strCommand = utils::unsignedCharToString(command, command_length);
 	dwRecvLength_ = sizeof(pbRecvBuffer_);
 
+	//@@
+	if (command_length == 3) {
+		dwRecvLength_= command[1];
+		dwRecvLength_ = dwRecvLength_ << 8;
+		dwRecvLength_ = dwRecvLength_ | command[2];
+		LOG_DEBUG << "Length to be returned : " << dwRecvLength_;
+		DWORD i = 0;
+		for (i=00; i<dwRecvLength_; i++){
+			pbRecvBuffer_[i] = i & 0xFF;
+		}
+		pbRecvBuffer_[dwRecvLength_++] = 0x90;
+		pbRecvBuffer_[dwRecvLength_++] = 0x00;
+
+		std::string responseAPDU =  utils::unsignedCharToString(pbRecvBuffer_, dwRecvLength_);
+		ResponsePacket response = { .response = responseAPDU };
+		return response;
+	}
+	//@@
 	int tries = 0;
 	if ((resp = SCardTransmit(hCard_, &pioSendPci_, command, command_length, NULL, pbRecvBuffer_, &dwRecvLength_)) != SCARD_S_SUCCESS) {
 		while (resp != SCARD_S_SUCCESS && tries < TRIES_LIMIT) {

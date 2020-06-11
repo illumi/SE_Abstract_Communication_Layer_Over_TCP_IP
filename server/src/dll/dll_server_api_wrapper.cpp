@@ -19,6 +19,14 @@
 #include "dll/dll_server_api_wrapper.h"
 #include "server/server_api.hpp"
 
+//@@
+#include "logger/logger.hpp"
+#include "nlohmann/json.hpp"
+#include "plog/include/plog/Log.h"
+#include "plog/include/plog/Appenders/ColorConsoleAppender.h"
+#include "string.h"
+//@@
+
 #include <iostream>
 
 using namespace server;
@@ -65,6 +73,9 @@ using namespace server;
  void sendCommand(server::ServerAPI* server, int id_client, char* command, DWORD timeout, ResponseDLL& response_packet) {
 	ResponsePacket response = server->sendCommand(id_client, command, timeout);
 	responsePacketForDll(response, response_packet);
+	//@@
+	LOG_DEBUG << "Received from Client and returned to calling program :" << response_packet.response;
+	//@@
 }
 
  void sendTypeA(server::ServerAPI* server, int id_client, char* command, DWORD timeout, ResponseDLL& response_packet) {

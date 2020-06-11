@@ -7,7 +7,7 @@ namespace ClientWPF.ViewModels
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
     struct ResponseDLL
     {
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 4096 * 2)]
+        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 4096 * 3)]
         public string response;
 
         public int err_server_code;

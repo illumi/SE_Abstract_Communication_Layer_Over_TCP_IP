@@ -27,7 +27,7 @@ namespace client {
 
 /* DLL Buffer Size */
 #define DEFAULT_DLL_BUFFER_SIZE 2*1024
-#define DEFAULT_DLL_BUFFER_SIZE_EXTENDED 2*4096
+#define DEFAULT_DLL_BUFFER_SIZE_EXTENDED 3*4096
 
 /* client information */
 #define DEFAULT_NAME "default_name" // client's name

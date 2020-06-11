@@ -29,7 +29,7 @@ namespace server {
 
 /* DLL Buffer Size */
 #define DEFAULT_DLL_BUFFER_SIZE 2*1024
-#define DEFAULT_DLL_BUFFER_SIZE_EXTENDED 2*4096
+#define DEFAULT_DLL_BUFFER_SIZE_EXTENDED 3*4096
 
 /* logs */
 #define DEFAULT_LOG_LEVEL "info" // debug level - info or debug (more verbose)
@@ -41,7 +41,7 @@ namespace server {
 /* timeouts */
 #define DEFAULT_REQUEST_TIMEOUT 5500 // waiting time used client's side for the terminal response
 
-#define DLL_VERSION "0.3.1" //Define the DLL Server Version
+#define DLL_VERSION "0.3.2" //Define the DLL Server Version
 
 } /* namespace server */
 
