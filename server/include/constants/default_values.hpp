@@ -29,7 +29,7 @@ namespace server {
 
 /* DLL Buffer Size */
 #define DEFAULT_DLL_BUFFER_SIZE 2*1024
-#define DEFAULT_DLL_BUFFER_SIZE_EXTENDED 3*4096
+#define DEFAULT_DLL_BUFFER_SIZE_EXTENDED 2*4096
 
 /* logs */
 #define DEFAULT_LOG_LEVEL "info" // debug level - info or debug (more verbose)
